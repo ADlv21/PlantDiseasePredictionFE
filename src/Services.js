@@ -13,7 +13,7 @@ function Service() {
   const handleSubmission = () => {
     const formData = new FormData();
     formData.append("File", selectedFile);
-    fetch("http://127.0.0.1:5000", {
+    fetch(`${process.env.REACT_APP_BACKEND_SERVER}`, {
       method: "POST",
       body: formData,
     })
@@ -25,6 +25,7 @@ function Service() {
         console.error("Error:", error);
       });
   };
+
   return (
     <div className="service component__space" id="Services">
       <div className="heading">
