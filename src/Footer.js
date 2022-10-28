@@ -11,7 +11,8 @@ function Footer() {
         className="copyright"
         style={{ color: "#c6c9d8", fontSize: "14px", opacity: "0.75" }}
       >
-        Copyright © 2021 programmer Shahriar Sajeeb. All Rights Reserved.
+        Made by Priyanka Chavan || Adwait Gawade || Adarsh Meher || Rashita
+        Vetkar
       </span>
     </div>
   );
