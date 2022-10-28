@@ -5,6 +5,9 @@ import "./Services.css";
 
 function Service() {
   const [selectedFile, setSelectedFile] = useState();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [predictedPlantDisease, setPredictedPlantDisease] =
+    useState("Apple___Black_rot");
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -24,6 +27,7 @@ function Service() {
       .catch((error) => {
         console.error("Error:", error);
       });
+    setIsSubmitted(true);
   };
 
   return (
@@ -89,6 +93,29 @@ function Service() {
             >
               Submit
             </button>
+            {isSubmitted ? (
+              <div>
+                <h1
+                  style={{
+                    textAlign: "center",
+                    paddingTop: 20,
+                    fontSize: 30,
+                  }}
+                >
+                  Predicted Plant Disease
+                </h1>
+                <h1
+                  style={{
+                    textAlign: "center",
+                    paddingTop: 28,
+                  }}
+                >
+                  {predictedPlantDisease}
+                </h1>
+              </div>
+            ) : (
+              <h1></h1>
+            )}
           </div>
         </div>
       </div>
