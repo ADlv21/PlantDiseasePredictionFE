@@ -114,7 +114,7 @@ function Service() {
                 </h1>
               </div>
             ) : (
-              <h1></h1>
+              <></>
             )}
           </div>
         </div>
