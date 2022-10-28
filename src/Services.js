@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useRef } from "react";
-import FileUp from "./FileUp";
 import "./Services.css";
 
 function Service() {
