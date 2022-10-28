@@ -4,8 +4,7 @@ import "./Services.css";
 function Service() {
   const [selectedFile, setSelectedFile] = useState();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [predictedPlantDisease, setPredictedPlantDisease] =
-    useState("Apple___Black_rot");
+  const [predictedPlantDisease, setPredictedPlantDisease] = useState();
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -21,6 +20,8 @@ function Service() {
       .then((response) => response.json())
       .then((result) => {
         console.log("Success:", result);
+        //console.log(result.dis);
+        setPredictedPlantDisease(result.dis);
       })
       .catch((error) => {
         console.error("Error:", error);
