@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "./Home.css";
 import logo from "./img/ailogo.png";
 
@@ -78,7 +78,6 @@ function Home() {
               <h1 className="home__text pz__10">Azure Plant</h1>
               <h2 className="home__text pz__10">All great changes are</h2>
               <h3 className="home__text sweet pz__10">preceded by chaos</h3>
-              
             </div>
           </div>
         </div>
