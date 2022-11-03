@@ -77,7 +77,7 @@ function Home() {
             <div className="home__meta">
               <h1 className="home__text pz__10">Azure Plant</h1>
               <h2 className="home__text pz__10">All great changes are</h2>
-              <h3 className="home__text sweet pz__10">preceded by ADwait</h3>
+              <h3 className="home__text sweet pz__10">preceded by Chaos</h3>
             </div>
           </div>
         </div>
