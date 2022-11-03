@@ -14,7 +14,7 @@ function Service() {
   const handleSubmission = () => {
     const formData = new FormData();
     formData.append("File", selectedFile);
-    fetch("http://ec2-65-2-176-23.ap-south-1.compute.amazonaws.com:5000/", {
+    fetch(`${process.env.REACT_APP_BACKEND_SERVER}`, {
       method: "POST",
       body: formData,
     })
