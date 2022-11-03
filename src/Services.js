@@ -17,6 +17,7 @@ function Service() {
     fetch(`${process.env.REACT_APP_BACKEND_SERVER}`, {
       method: "POST",
       body: formData,
+      protocol: "http:",
       referrerPolicy: `${process.env.REACT_APP_BACKEND_SERVER}`,
     })
       .then((response) => response.json())
