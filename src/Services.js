@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Services.css";
+import leaf from "./img/apple.jpg"
 
 function Service() {
   const [selectedFile, setSelectedFile] = useState();
@@ -7,8 +8,9 @@ function Service() {
   const [predictedPlantDisease, setPredictedPlantDisease] = useState("");
   const [perdictedPlant, setPerdictedPlant] = useState("");
 
-  const changeHandler = (event) => {
-    setSelectedFile(event.target.files[0]);
+  const changeHandler = (e) => {
+    console.log(e.target.files);
+    setSelectedFile(URL.createObjectURL(e.target.files[0]));
   };
 
   const handleSubmission = () => {
@@ -44,6 +46,7 @@ function Service() {
         <p className="heading p__color">Detect the diease your plant has</p>
         <p className="heading p__color"></p>
       </div>
+
       <div className="container">
         <div className="row">
           <div className="col__3">
@@ -114,19 +117,50 @@ function Service() {
                 <h1
                   style={{
                     textAlign: "center",
-                    paddingTop: 28,
+                    paddingTop: 2,
+                    fontSize: 30,
+                    fontfamily: "Times New Roman", 
+                    backgroundColor: "#f9004d"
+                  
+                    
                   }}
                 >
-                  {perdictedPlant} {predictedPlantDisease}
+                  {perdictedPlant}{predictedPlantDisease}
                 </h1>
               </div>
+
+              
             ) : (
               <></>
             )}
+
+            
           </div>
-        </div>
-      </div>
-    </div>
+       <div className="col__3">
+            <div className="service__box pointer">
+            <h1 className="service__text">PREVIEW </h1>
+            {changeHandler}
+            <img src={selectedFile} />
+          </div>
+          </div>
+
+
+          <div className="col__3">
+            <div className="service__box pointer">
+            <p className="p service__text p__color">
+            <h1 className="service__text">PREVENTION</h1>
+                    <p className="p service__text p__color">
+                    Remove diseased fruit, dead wood, and any cankers formed in the wood tissue. Penn State Extension suggests applying fungicides every 10 to 14 days through harvest and more frequently under bitter rot’s preferred conditions. The Extension recommends products called captan and ziram as protective control methods when combined with another fungicide.
+                  </p>
+                  </p>
+          </div>
+          </div>
+          </div>
+          <div>
+          </div>
+          </div>
+        
+          </div>
   );
 }
 
