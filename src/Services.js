@@ -17,6 +17,7 @@ function Service() {
     fetch(`${process.env.REACT_APP_BACKEND_SERVER}`, {
       method: "POST",
       body: formData,
+      referrerPolicy: "unsafe_url",
     })
       .then((response) => response.json())
       .then((result) => {
