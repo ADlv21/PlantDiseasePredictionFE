@@ -14,10 +14,10 @@ function Service() {
   const handleSubmission = () => {
     const formData = new FormData();
     formData.append("File", selectedFile);
-    fetch(`${process.env.REACT_APP_BACKEND_SERVER}`, {
+    fetch("http://65.2.176.23:5000/", {
+      protocol: "http:",
       method: "POST",
       body: formData,
-      protocol: "http:",
     })
       .then((response) => response.json())
       .then((result) => {
