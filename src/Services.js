@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./Services.css";
-import leaf from "./img/apple.jpg"
 
 function Service() {
   const [selectedFile, setSelectedFile] = useState();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [predictedPlantDisease, setPredictedPlantDisease] = useState("");
   const [perdictedPlant, setPerdictedPlant] = useState("");
-
+  const [data,setData]=useState([]);
+ 
   const changeHandler = (e) => {
     console.log(e.target.files);
     setSelectedFile(URL.createObjectURL(e.target.files[0]));
@@ -140,7 +140,12 @@ function Service() {
             <div className="service__box pointer">
             <h1 className="service__text">PREVIEW </h1>
             {changeHandler}
-            <img src={selectedFile} />
+            <img src={selectedFile} style={{
+              width: 300,
+              height: 250,
+              
+            }}
+            />
           </div>
           </div>
 
@@ -149,10 +154,13 @@ function Service() {
             <div className="service__box pointer">
             <p className="p service__text p__color">
             <h1 className="service__text">PREVENTION</h1>
-                    <p className="p service__text p__color">
-                    Remove diseased fruit, dead wood, and any cankers formed in the wood tissue. Penn State Extension suggests applying fungicides every 10 to 14 days through harvest and more frequently under bitter rot’s preferred conditions. The Extension recommends products called captan and ziram as protective control methods when combined with another fungicide.
-                  </p>
-                  </p>
+                 {perdictedPlant}
+                 <p>1. Start by pruning away diseased branches and leaves with sterilized pruning tools Pruning will also thin out your cherry tree, allowing for better airflow.
+</p>
+<p>
+2.Chemical control can reduce an infection but it's challenging to apply at just the right times. The best way to prevent an infestation. Raking and removing leaves around trees in fall will reduce a source of infection."
+</p>
+</p>
           </div>
           </div>
           </div>

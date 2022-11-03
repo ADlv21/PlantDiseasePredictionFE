@@ -10,6 +10,7 @@ p.heading.p__color {
     margin-bottom: 0;
     text-align: center;
     line-height: 1.2;
+    
 }
 .service__box {
     border-radius: 10px;
@@ -41,6 +42,9 @@ p.heading.p__color {
 }
 p.service__text.p__color {
     margin-bottom: 0;
+    text-align: justify;
+    font-size: small;
+    font-family: 'Times New Roman', Times, serif;
  
 }
 h1.service__text {
