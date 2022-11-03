@@ -18,7 +18,6 @@ function Service() {
       method: "POST",
       body: formData,
       protocol: "http:",
-      referrerPolicy: `${process.env.REACT_APP_BACKEND_SERVER}`,
     })
       .then((response) => response.json())
       .then((result) => {
