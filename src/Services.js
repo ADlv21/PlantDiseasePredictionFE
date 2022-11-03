@@ -14,8 +14,7 @@ function Service() {
   const handleSubmission = () => {
     const formData = new FormData();
     formData.append("File", selectedFile);
-    fetch("http://65.2.176.23:5000/", {
-      protocol: "http:",
+    fetch("http://ec2-65-2-176-23.ap-south-1.compute.amazonaws.com:5000/", {
       method: "POST",
       body: formData,
     })
