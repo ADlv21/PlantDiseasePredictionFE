@@ -6,35 +6,28 @@ function Service() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [predictedPlantDisease, setPredictedPlantDisease] = useState("");
   const [perdictedPlant, setPerdictedPlant] = useState("");
-  const [data,setData]=useState([]);
- 
+
   const changeHandler = (e) => {
-    console.log(e.target.files);
-    setSelectedFile(URL.createObjectURL(e.target.files[0]));
+    console.log(e.target.files[0]);
+    setSelectedFile(e.target.files[0]);
   };
 
   const handleSubmission = () => {
     const formData = new FormData();
     formData.append("File", selectedFile);
-    fetch(`${process.env.REACT_APP_BACKEND_SERVER}`, {
+    fetch("http://127.0.0.1:5000/", {
       method: "POST",
       body: formData,
     })
+      //.then((response) => console.log("Response", response))
       .then((response) => response.json())
       .then((result) => {
         console.log("Success:", result);
-        //console.log(result.dis);
-        console.log(result.disease);
-        console.log(result.plant);
-
         setPredictedPlantDisease(result.disease);
         setPerdictedPlant(result.plant);
-
-        console.log(perdictedPlant);
-        console.log(predictedPlantDisease);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error("Error React:", error);
       });
     setIsSubmitted(true);
   };
@@ -52,15 +45,13 @@ function Service() {
           <div className="col__3">
             <input
               type="file"
-              name="file"
-              id="fileUpload"
+              name="File"
+              id="fileUp"
               hidden
               onChange={changeHandler}
             />
-            <label htmlFor="fileUpload">
+            <label htmlFor="fileUp">
               <div className="service__box pointer">
-                {/* place File here */}
-
                 <div className="icon">
                   <svg
                     stroke="currentColor"
@@ -119,56 +110,22 @@ function Service() {
                     textAlign: "center",
                     paddingTop: 2,
                     fontSize: 30,
-                    fontfamily: "Times New Roman", 
-                    backgroundColor: "#f9004d"
-                  
-                    
+                    fontfamily: "Times New Roman",
+                    backgroundColor: "#f9004d",
                   }}
                 >
-                  {perdictedPlant}{predictedPlantDisease}
+                  {perdictedPlant}
+                  <br />
+                  {predictedPlantDisease}
                 </h1>
               </div>
-
-              
             ) : (
               <></>
             )}
-
-            
           </div>
-       <div className="col__3">
-            <div className="service__box pointer">
-            <h1 className="service__text">PREVIEW </h1>
-            {changeHandler}
-            <img src={selectedFile} style={{
-              width: 300,
-              height: 250,
-              
-            }}
-            />
-          </div>
-          </div>
-
-
-          <div className="col__3">
-            <div className="service__box pointer">
-            <p className="p service__text p__color">
-            <h1 className="service__text">PREVENTION</h1>
-                 {perdictedPlant}
-                 <p>1. Start by pruning away diseased branches and leaves with sterilized pruning tools Pruning will also thin out your cherry tree, allowing for better airflow.
-</p>
-<p>
-2.Chemical control can reduce an infection but it's challenging to apply at just the right times. The best way to prevent an infestation. Raking and removing leaves around trees in fall will reduce a source of infection."
-</p>
-</p>
-          </div>
-          </div>
-          </div>
-          <div>
-          </div>
-          </div>
-        
-          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

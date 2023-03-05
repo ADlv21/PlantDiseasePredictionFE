@@ -1,6 +1,5 @@
 import About from "./About";
 import "./App.css";
-import Footer from "./Footer";
 import Home from "./Home";
 import Services from "./Services";
 
@@ -10,7 +9,6 @@ function App() {
       <Home />
       <About />
       <Services />
-      <Footer />
     </div>
   );
 }
